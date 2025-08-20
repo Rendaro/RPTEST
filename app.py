@@ -4,7 +4,7 @@ import requests
 app = Flask(__name__, static_folder='static', template_folder='templates', static_url_path='/static')
 
 # Tvůj Steam Web API klíč
-STEAM_API_KEY = "72547210A1D49DA9A8CD3497ADCB6568366FE1E71F6"
+STEAM_API_KEY = "D3D112DC32E1ABE184C371A5F2F7E600"
 STEAM_ID = "76561198274487668"  # tvoje SteamID64
 
 def get_steam_userinfo(steam_id):
