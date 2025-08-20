@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Action Gaming - Herní portál</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta name="robots" content="index, follow">
+    <meta name="description" content="Action Gaming - SCP: Secret Laboratory komunita. Připoj se na náš Discord a sleduj stav serverů přímo na hlavní stránce.">
+    <link rel="canonical" href="https://action-gaming.eu/">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='img/AGRP.png') }}">
+
+    <!-- Zamezení cache -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <!-- Force reload on back button -->
+    <script>
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted || (window.performance && window.performance.getEntriesByType("navigation")[0].type === "back_forward")) {
+                window.location.reload();
+            }
+        });
+    </script>
+</head>
+<body>
+    <header class="header">
+        <div class="logo-box">
+            <img src="{{ url_for('static', filename='img/AGRP.png') }}" alt="Logo Action Gaming" class="logo">
+            <span class="site-title">Action Gaming RP app</span>
+        </div>
+        <div class="header-bottom">
+        <nav class="nav">
+            <a href="{{ url_for('index') }}" class="nav-link">
+                <i class="fa-solid fa-house nav-icon" aria-hidden="true"></i>
+                Domů
+            </a>
+        
+            <a href="https://discord.gg/tvuj_discord" class="nav-link" target="_blank" rel="noopener">
+                <i class="fab fa-discord nav-icon" aria-hidden="true"></i>
+                Discord
+            </a>
+        </nav>
+        <div class="steam-login-wrapper">
+            {% if steam_user %}
+            <p>Přihlášený jako: {{ steam_user.personaname }} (SteamID: {{ steam_user.steamid }})</p>
+          {% else %}
+            <p>Nepodařilo se načíst uživatelská data.</p>
+          {% endif %}
+        </div>
+    </div>
+    </header>
+    <main class="content"></main>
+    <footer class="footer">
+        &copy; 2025 Action Gaming | Všechna práva vyhrazena<br>
+        Web vytvořil: 
+        <span class="author">
+            <a href="https://discordapp.com/users/861249994848993301" target="_blank" title="Kontakt na autora (Discord)" style="color:inherit;text-decoration:none;">
+                <i class="fab fa-discord"></i> f1f#7196
+            </a>
+        </span>
+        <div class="socials">
+            <a href="https://discord.gg/tvuj_discord" target="_blank" rel="noopener" title="Main Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://www.tiktok.com/@action.gaming.czsk" target="_blank" title="TikTok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCJURcp8PntBcxmXQhBLyqgA" target="_blank" title="YouTube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+    </footer>
+</body>
+</html>
